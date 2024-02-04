@@ -15,7 +15,7 @@ int main( int argc, char *argv[] )
    
     //printf("Hello World");
     if( argc == 3 ) {
-      printf("The argument supplied is %s  %s \n", argv[1],argv[2] );
+      printf("The arguments supplied are %s  %s \n", argv[1],argv[2] );
       int vec_size = atoi(argv[1]);
       int measurements = atoi(argv[2]);
     float *vec1 = (float * )malloc(vec_size*sizeof(float));
