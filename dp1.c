@@ -47,13 +47,15 @@ int main( int argc, char *argv[] ){
     }
     
     // for execution time need arithmetic mean
-    double exec_time = 0;
+    double mean_time = 0;
+    double exec_time = 0; 
     double half = measurements/2;
     //printf("idk what instructions are asking so heres completed_time array \n");
     for(int k = 0; k<measurements;k++){
         //printf("%f \n", completed_time[k]);
+        exec_time += completed_time[k];
         if(k<= half){
-            exec_time += completed_time[k];
+            mean_time += completed_time[k];
         }
     }
     ////
@@ -63,10 +65,19 @@ int main( int argc, char *argv[] ){
         - B: input size of vectors / execution time 
         - <T>: execution time 
     */
-    exec_time /= half;
-    exec_time *=0.000001; //for microseconds 
-    float b = 8/exec_time; //8.0*(measurements*vec_size)/exec_time;//2*sizeof(float)*(measurements*vec_size);
-    float F = 2.0/exec_time;
+    mean_time /= half;
+    mean_time *=0.000001; //for microseconds 
+    // harmonic mean appropriate as stated in notes
+    // don't use mean time for calculations
+    //float b = 8/exec_time; //8.0*(measurements*vec_size)/exec_time;//2*sizeof(float)*(measurements*vec_size);
+    float b = (2*sizeof(float)*(measurements*vec_size))/exec_time;
+    //sizeof(float)*(measurements*vec_size)/exec_time;
+    // GB/s 
+    //float F = 2.0/exec_time;
+    float F = (2.0*measurements*vec_size)/exec_time;
+    // N = vec_size
+    // (instructions*N*measurements)/exec_time;  
+    // use actual exectime instead of mean time for Bandwidth and throughput
     printf("N: %d, <T>: %f sec, B: %f GB/s, F: %f FLOP/sec \n", vec_size,exec_time,b,F);
     return 0;
    }
@@ -75,3 +86,11 @@ int main( int argc, char *argv[] ){
     return 1;
    }   
 }
+
+
+
+
+
+/*
+q1-> caching and etc is ingnored in system performance for dot product benchmark 
+*/
