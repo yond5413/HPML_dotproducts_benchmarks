@@ -76,6 +76,8 @@ int main( int argc, char *argv[] ){
     // GB/s 
     //float F = 2.0/exec_time;
     float F = (2.0*measurements*vec_size)/exec_time;
+    b *= 1.0E-09;
+    F *= 1.0E-09;
     // N = vec_size
     // (instructions*N*measurements)/exec_time;  
     // use actual exectime instead of mean time for Bandwidth and throughput
