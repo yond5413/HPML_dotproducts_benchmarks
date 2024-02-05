@@ -30,7 +30,7 @@ if __name__ == "__main__":
         if (k<= half):
             total += times[k]
     exec_time = total/half
-    b = 8*(iterations*N)/(exec_time)#3float()
+    b = 8/(exec_time)#8*(iterations*N)/(exec_time)#3float()
     F = 2.0/exec_time
 
     print(f"N: {N}, <T>: {exec_time} sec, B: {b} GB/S, F: {F} FLOP/sec")
