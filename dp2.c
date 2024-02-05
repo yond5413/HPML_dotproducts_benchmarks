@@ -66,7 +66,7 @@ int main( int argc, char *argv[] )
     */
     exec_time /= half;
     exec_time *=0.000001; //for microseconds 
-    float b = 8.0*(100000000)/exec_time;//sizeof(float)*(measurements*vec_size);
+    float b = 8.0*(measurements*vec_size)/exec_time;//sizeof(float)*(measurements*vec_size);
     float F = 2.0/exec_time;
     printf("N: %d, <T>: %f sec, B: %f GB/s, F: %f FLOP/sec \n", vec_size,exec_time,b,F);
     return 0;
