@@ -4,8 +4,8 @@ import sys
 def dp(N,A,B):
     R = 0.0
     R = np.dot(A,B)
-    #for j in range(0,N):
-    #    R += A[j]*B[j]  #### change to np.dot
+    for j in range(0,N):
+        R += A[j]*B[j]  #### change to np.dot
     return R
 if __name__ == "__main__":
     N = int(sys.argv[1])
@@ -22,7 +22,7 @@ if __name__ == "__main__":
     total = 0
     half = iterations//2
     for k in range(0,iterations):
-        print(f"total: {total}, curr_time: {times[k]}, k: {k}")
+        #print(f"total: {total}, curr_time: {times[k]}, k: {k}")
         if (k<= half):
             #print(f"total: {total}, curr_time: {times[k]}")
             total += times[k]
