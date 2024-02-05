@@ -67,6 +67,7 @@ int main( int argc, char *argv[] ){
     */
     mean_time /= half;
     mean_time *=0.000001; //for microseconds 
+    exec_time *= 0.000001;
     // harmonic mean appropriate as stated in notes
     // don't use mean time for calculations
     //float b = 8/exec_time; //8.0*(measurements*vec_size)/exec_time;//2*sizeof(float)*(measurements*vec_size);
