@@ -20,10 +20,11 @@ if __name__ == "__main__":
     times = list()
     for i in range(0,iterations):
         start = time.monotonic() #+ time.monotonic_ns()
-        dp(N,A,B) 
+        ret = dp(N,A,B) 
         end = time.monotonic() #+ time.monotonic_ns()
         #print(f"exec time: {end-start}")
         times.append(end-start)
+        print(f"measurement {i}, res:{ret}")
     total = 0
     half = iterations//2
     for k in range(0,iterations):
