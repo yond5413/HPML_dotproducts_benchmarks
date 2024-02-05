@@ -40,6 +40,12 @@ plt.plot(arithmetic_intensity * peak_bytes, flat_line_values * peak_flops, '--',
 
 plt.plot([peak_bytes,peak_flops], [peak_flops, peak_flops], color='green', linestyle='-', label='ligma')
 
+'''
+for the AI stuff it is 2 floating point operations and since a float in C 
+is a 32 bit data type ie: 4 byte the computation is 2/(2*4) or 
+AI = Instructions/(sizeof(float)*variables)
+'''
+
 # Plot data points
 for measurement, data in data_points.items():
     flops = data['flops']
