@@ -74,7 +74,7 @@ int main( int argc, char *argv[] )
     // N = vec_size
     // (instructions*N*measurements)/exec_time;  
     // use actual exectime instead of mean time for Bandwidth and throughput
-    printf("N: %d, <T>: %f sec, B: %f GB/s, F: %f FLOP/sec \n", vec_size,exec_time,b,F);
+    printf("N: %d, <T>: %f sec, B: %f GB/s, F: %f GFLOP/sec \n", vec_size,exec_time,b,F);
     return 0;
     }
    else {
