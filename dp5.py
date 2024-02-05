@@ -14,9 +14,9 @@ if __name__ == "__main__":
     B = np.ones(N,dtype=np.float32)
     times = list()
     for i in range(0,iterations):
-        start = time.monotonic() + time.monotonic_ns()
+        start = time.monotonic() #+ time.monotonic_ns()
         dp(N,A,B) 
-        end = time.monotonic() + time.monotonic_ns()
+        end = time.monotonic() #+ time.monotonic_ns()
         #print(f"exec time: {end-start}")
         times.append(end-start)
     total = 0
