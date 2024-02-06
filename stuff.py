@@ -27,7 +27,6 @@ data_points = {
     'dp5 N = 300000000, measurements =  20': {'FLOP/s': 0.11296808679821894e9, 'Bytes/s': 0.4518723471928758e9},
 }
 
-
 # Set the threshold for flattening the line
 arithmetic_intensity_threshold = peak_flops / peak_bytes
 
@@ -51,7 +50,7 @@ flat_line_values = np.ones_like(arithmetic_intensity) #* arithmetic_intensity_th
 #plt.plot(arithmetic_intensity * peak_bytes, flat_line_values * peak_flops, '--', label='Memmory Bandwidth limit', color='red')
 #############################3
 
-plt.plot([peak_bytes,peak_flops], [peak_flops, peak_flops], color='green', linestyle='-', label='Peak FLops')
+plt.plot([peak_bytes,peak_flops], [peak_flops, peak_flops], color='blue', linestyle='-', label='Peak FLops')
 
 '''
 for the AI stuff it is 2 floating point operations and since a float in C 
@@ -64,7 +63,13 @@ for measurement, data in data_points.items():
     flops = data['FLOP/s']
     bytes_accessed = data['Bytes/s']
     plt.scatter(bytes_accessed, flops, label=measurement)
+    
+for position, data in data_points.items():
+    #print(data)
+    plt.vlines(x=data['Bytes/s'], ymin=0, ymax=data['FLOP/s'], color='red', linestyle='--')
+    #plt.vlines(x=bytes_accessed, ymin=0, ymax=flops, color='red', linestyle='--')
 
+plt.vlines(x=peak_bytes, ymin=0, ymax=peak_flops, color='orange',linestyle='--',label="Optimal peak thoughput and beak bandwidth")
 # Set axis labels
 plt.xlabel('Arithmetic Intensity (AI) Bytes/S')
 plt.ylabel('FLOPs')
@@ -72,10 +77,10 @@ plt.xscale('log')
 plt.yscale('log')
 
 # Set the legend
-plt.legend()
+plt.legend(loc='upper left')#, bbox_to_anchor=(1, 0.5))
 
 # Set title
-plt.title('Roofline Model')
+plt.title('Roofline Model ')
 
 # Show the plot
 plt.show()
